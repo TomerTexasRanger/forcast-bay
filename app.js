@@ -33,16 +33,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-// try {
-//   coors.map((coor) => {
-//     coor = coor[0].center.join();
-//     let weatherUrl = `http://api.weatherstack.com/current?access_key=fc5a40f2c6d71634bd57182e9dcce213&query=${coor}`;
-//     let weather = await axios.get(weatherUrl);
-//     weather = weather.data;
-//     console.log(weather);
-//     res.json(weather);
-//   });
-// } catch (error) {
-//   console.log(error);
-// }
