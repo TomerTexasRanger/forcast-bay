@@ -52,7 +52,5 @@ const init = () => {
       $locDiv.append($btn);
       $(".locations").append($locDiv);
     });
-
-    // $(".weather-data").html(`${main.weather_descriptions[0]}`);
   });
 };
