@@ -42,7 +42,7 @@ const init = () => {
     }
     $("input").val("");
 
-    let data = await fetch(`https://forcast-bay.herokuapp.com//${location}`);
+    let data = await fetch(`https://forcast-bay.herokuapp.com/${location}`);
     let locations = await data.json();
     $(".locations").append("<h3>Results:</h3>");
     locations.map((location) => {
