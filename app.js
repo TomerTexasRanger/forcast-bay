@@ -5,17 +5,7 @@ const axios = require("axios");
 
 app.use(cors());
 app.use(express.json());
-// app.use("/", express.static(path.join(__dirname, "index.html")));
-
-// Serve static assets in production
-if (process.env.NODE_ENV === "production") {
-  // Set static folder
-  app.use(express.static("index.html"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "index.html"));
-  });
-}
+app.use("/", express.static(path.join(__dirname, "./index.html")));
 
 app.get("/find/:loc", async (req, res) => {
   let location = req.params.loc;
