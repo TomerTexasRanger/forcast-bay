@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const axios = require("axios");
+const http = require("http").Server(app);
 
 app.use(cors());
 app.use(express.json());
@@ -34,6 +35,6 @@ app.get("/find/forcast/:coor", async (req, res) => {
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
+http.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
