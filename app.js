@@ -3,12 +3,13 @@ const app = express();
 const cors = require("cors");
 const axios = require("axios");
 const http = require("http").Server(app);
+const path = require("path");
 
 app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "index.html");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.get("/find/:loc", async (req, res) => {
