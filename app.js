@@ -5,8 +5,7 @@ const axios = require("axios");
 const http = require("http").Server(app);
 const path = require("path");
 
-// app.use(cors());
-app.use(express.json());
+// mapapp.use(express.json());
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
@@ -17,8 +16,12 @@ app.get("/find/:loc", async (req, res) => {
   if (!location) return res.status(400).send("No location entered");
   let geoUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=pk.eyJ1IjoidG9tZXJzYXAiLCJhIjoiY2tqcmU1NHkxMXVtaTJzbDk4ejVzdmg5eSJ9.QqKRMOf1vWI_FirtKgt9dg`;
 
+  let geoUrlMobile = `http://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=pk.eyJ1IjoidG9tZXJzYXAiLCJhIjoiY2tqcmU1NHkxMXVtaTJzbDk4ejVzdmg5eSJ9.QqKRMOf1vWI_FirtKgt9dg`;
   try {
     let data = await axios.get(geoUrl);
+    if (!data) {
+      data = await axios.get(geoUrlMobile);
+    }
     let coors = data.data.features;
     res.json(coors);
   } catch (error) {
