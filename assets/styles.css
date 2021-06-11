@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* /////////////////SM /////////////////////////////////////////  */
+
 @media only screen and (min-width: 300px) {
   html {
     height: 100%;
