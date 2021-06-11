@@ -10,7 +10,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
-// app.use(express.static(__dirname + "../public"));
+app.use(express.static(__dirname + "/public/index"));
+app.use(express.static(__dirname + "/public/styles"));
 
 app.get("/find/:loc", async (req, res) => {
   let location = req.params.loc;
