@@ -8,7 +8,7 @@ const getWeather = async (coordinates, name) => {
   coordinates.push(x);
   coordinates = coordinates.join();
   let weatherData = await fetch(
-    `https://forcast-bay.herokuapp.com/forcast/${coordinates}`
+    `https://forcast-bay.herokuapp.com/find/forcast/${coordinates}`
   );
   $(".locations").append("<h3>Result:</h3>");
   let currentWeather = await weatherData.json();
@@ -42,7 +42,9 @@ const init = () => {
     }
     $("input").val("");
 
-    let data = await fetch(`https://forcast-bay.herokuapp.com/${location}`);
+    let data = await fetch(
+      `https://forcast-bay.herokuapp.com/find/${location}`
+    );
     let locations = await data.json();
     $(".locations").append("<h3>Results:</h3>");
     locations.map((location) => {
