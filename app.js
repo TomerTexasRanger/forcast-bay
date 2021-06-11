@@ -5,7 +5,7 @@ const axios = require("axios");
 const http = require("http").Server(app);
 const path = require("path");
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
